@@ -4,32 +4,25 @@ import styled from 'styled-components';
 import Container from '@components/Container';
 import SetArticleLength from '@containers/SetArticleLengthContainer';
 
-import { lightTheme, darkTheme } from '@styles/colors';
-import { mediaColorScheme, mediaQueries } from '@styles/media';
+import { mediaQueries } from '@styles/media';
 
 const HeaderPlaceHolder = styled.div`
-  min-height: 61px;
+  @media ${mediaQueries.tabletDesktop} {
+    min-height: 61px;
+  }
+
+  min-height: 97px;
 `;
 
 const HeaderDiv = styled.div`
   padding: 15px 0;
-  border-bottom: 1px solid ${lightTheme.headerBorderColor};
-  background-color: ${lightTheme.backgroundColor};
-  color: ${lightTheme.headerTextColor};
-
-
-  @media ${mediaColorScheme.dark} {
-    border-bottom: 1px solid ${darkTheme.headerBorderColor};
-    background-color: ${darkTheme.backgroundColor};
-    color: ${darkTheme.headerTextColor};
-  }
-
-  @media ${mediaQueries.tabletDesktop} {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-  }
+  border-bottom: 1px solid ${props => props.theme.headerBorderColor};
+  background-color: ${props => props.theme.backgroundColor};
+  color: ${props => props.theme.headerTextColor};
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
 `;
 
 const HeaderContainer = styled(Container)`

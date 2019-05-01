@@ -1,9 +1,9 @@
 const detectColorScheme = () => {
   if (!window.matchMedia) {
-      return 'light';
+    return 'light';
   }
-  
-  const {matches} = window.matchMedia('(prefers-color-scheme: dark)');
+
+  const { matches } = window.matchMedia('(prefers-color-scheme: dark)');
   return matches ? 'dark' : 'light';
 }
 

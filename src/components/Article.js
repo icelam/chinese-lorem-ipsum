@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { generateTitle, genrateArticle } from '@utils/GenerateBig5'
 
-import { lightTheme, darkTheme } from '@styles/colors';
-import { mediaColorScheme } from '@styles/media';
-
 const ArticleContainer = styled.div`
   padding: 30px 0;
 `;
@@ -21,12 +18,8 @@ const ArticleParagraph = styled.p`
 `;
 
 const ArticleWordCount = styled.p`
-  color: ${lightTheme.secondaryTextColor};
+  color: ${props => props.theme.secondaryTextColor};
   font-size: 0.8125em;
-
-  @media ${mediaColorScheme.dark} { 
-    color: ${darkTheme.secondaryTextColor};
-  }
 `;
 
 const Article = ({ desiredArticleLength }) => {
@@ -44,7 +37,7 @@ const Article = ({ desiredArticleLength }) => {
       { paragraphs.map((p, i) => <ArticleParagraph key={i}>{p}</ArticleParagraph>) }
       {
         paragraphs.length ? (
-          <ArticleWordCount>總字數：{ paragraphs.reduce((l, p) => l + p.length, 0) } 字</ArticleWordCount>
+          <ArticleWordCount>總字數：標題 {title.length} 字，內文 { paragraphs.reduce((l, p) => l + p.length, 0) } 字</ArticleWordCount>
         ) : (
           null
         )

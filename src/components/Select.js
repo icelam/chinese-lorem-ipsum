@@ -2,9 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { lightTheme, darkTheme } from '@styles/colors';
-import { mediaColorScheme } from '@styles/media';
-
 const SelectWrapper = styled.label`
   position: relative;
   margin: 0 4px;
@@ -18,20 +15,18 @@ const SelectWrapper = styled.label`
     height: 0;
     border-style: solid;
     border-width: 6px 6px 0 6px;
-    border-color: ${lightTheme.secondaryTextColor} transparent transparent transparent;
+    border-color: ${props => props.theme.secondaryTextColor} transparent transparent transparent;
     content: " ";
-
-    @media ${mediaColorScheme.dark} {
-      border-color: ${darkTheme.secondaryTextColor} transparent transparent transparent;
-    }
   }
 `;
 
 const SelectBox = styled.select`
+  height: 30px;
+  box-sizing: border-box;
   position: relative;
   padding: 0.25em 22px 0.25em 10px;
   margin: 0;
-  border: 1px solid ${lightTheme.secondaryTextColor};
+  border: 1px solid ${props => props.theme.secondaryTextColor};
   border-radius: 4px;
   background-color: transparent;
   color: inherit;
@@ -41,11 +36,6 @@ const SelectBox = styled.select`
   appearance: none;
   box-shadow: none;
   outline: none;
-
-  @media ${mediaColorScheme.dark} {
-    border: 1px solid ${darkTheme.secondaryTextColor};
-    color: ${darkTheme.mainTextColor};
-  }
 
   &::-ms-expand {
     display: none;

@@ -2,9 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { lightTheme, darkTheme } from '@styles/colors';
-import { mediaColorScheme } from '@styles/media';
-
 const FullPageDiv = styled.div`
   min-height: 100vh;
   display: flex;
@@ -17,24 +14,16 @@ const FullPageDiv = styled.div`
 
 const NotFoundCode = styled.h1`
   font-size: 60px;
-  color: ${lightTheme.secondaryTextColor};
+  color: ${props => props.theme.secondaryTextColor};
   line-height: 1;
   font-weight: normal;
   margin: 0 0 0.5em 0;
-
-  @media ${mediaColorScheme.dark} { 
-    color: ${darkTheme.secondaryTextColor};
-  }
 `;
 
 const NotFoundTitle = styled.h2`
   font-size: 1.5em;
-  color: ${lightTheme.linkHoverColor}
+  color: ${props => props.theme.linkHoverColor}
   margin: 0 0 1em 0;
-
-  @media ${mediaColorScheme.dark} { 
-    color: ${darkTheme.linkHoverColor};
-  }
 `;
 
 const NotFoundDescriptions = styled.p`

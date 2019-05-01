@@ -1,8 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 
-import { lightTheme, darkTheme } from '@styles/colors';
-import { mediaColorScheme } from '@styles/media';
-
 const GlobalStyle = createGlobalStyle`
   * {
     -webkit-text-size-adjust: 100%;
@@ -16,32 +13,17 @@ const GlobalStyle = createGlobalStyle`
     font-size: 16px;
     line-height: 150%;
     text-align: left;
-    background-color: ${lightTheme.backgroundColor};
-    color: ${lightTheme.mainTextColor};
+    background-color: ${props => props.theme.backgroundColor};
+    color: ${props => props.theme.mainTextColor};
     scroll-behavior: smooth;
   }
 
   a {
-    color: ${lightTheme.linkColor};
+    color: ${props => props.theme.linkColor};
     text-decoration: underline;
 
     &:hover {
-      color: ${lightTheme.linkHoverColor};
-    }
-  }
-
-  @media ${mediaColorScheme.dark} { 
-    html, body {
-      background-color: ${darkTheme.backgroundColor};
-      color: ${darkTheme.mainTextColor};
-    }
-
-    a {
-    color: ${darkTheme.linkColor};
-
-      &:hover {
-        color: ${darkTheme.linkHoverColor};
-      }
+      color: ${props => props.theme.linkHoverColor};
     }
   }
 `;
